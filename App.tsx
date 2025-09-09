@@ -1,80 +1,60 @@
-import { View, Text, Image, ScrollView, TextInput, TouchableOpacity } from "react-native";
-import { Ionicons, Feather } from "@expo/vector-icons";
+import "react-native-gesture-handler";
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import HomeScreen from "./screens/HomeScreen";
+import SearchScreen from "./screens/SearchScreen";
+import PlaylistScreen from "./screens/PlaylistScreen";
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import { MaterialIcons } from "@expo/vector-icons";
+import { StyleSheet } from "react-native";
+import './global.css';
 
-export default function HomeScreen() {
+const Tab = createBottomTabNavigator();
+
+export default function App() {
   return (
-    <View className="flex-1 bg-neutral-950 px-4 pt-14">
-      {/* Header */}
-      <View className="flex-row justify-between items-center mb-4">
-        <View>
-          <Text className="text-neutral-300 text-xs">Good Evening</Text>
-          <Text className="text-white text-xl font-semibold">Welcome Back</Text>
-        </View>
-        <Ionicons name="notifications-outline" size={22} color="white" />
-      </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.safeArea} edges={['bottom', 'left', 'right']}>
+        <NavigationContainer>
+          <Tab.Navigator
+            screenOptions={({ route }) => ({
+              headerShown: false,
+              tabBarActiveTintColor: "#1DB954",
+              tabBarInactiveTintColor: "#888",
+              tabBarStyle: {
+                backgroundColor: "#121212",
+                borderTopWidth: 0,
+                elevation: 5,
+                height: 60,
+              },
+              tabBarLabelStyle: {
+                fontSize: 12,
+                fontWeight: "600",
+              },
+              tabBarIcon: ({ color, size }) => {
+                let iconName = "";
 
-      {/* Search Bar */}
-      <View className="flex-row items-center bg-neutral-900 rounded-xl px-4 py-3 mb-6">
-        <Feather name="search" size={18} color="#aaa" />
-        <TextInput
-          placeholder="Search music, artists, albums..."
-          placeholderTextColor="#aaa"
-          className="ml-2 text-white flex-1 text-sm"
-        />
-      </View>
+                if (route.name === "Home") iconName = "home";
+                else if (route.name === "Search") iconName = "search";
+                else if (route.name === "Playlist") iconName = "queue-music";
 
-      {/* Featured Section */}
-      <View className="mb-6">
-        <Text className="text-white text-lg font-semibold mb-2">Recently Played</Text>
-        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-          {["https://i.imgur.com/UYiroysl.jpg", "https://i.imgur.com/UPrs1EWl.jpg", "https://i.imgur.com/MABUbpDl.jpg"].map((img, i) => (
-            <View key={i} className="mr-4">
-              <Image
-                source={{ uri: img }}
-                className="w-32 h-32 rounded-xl"
-                resizeMode="cover"
-              />
-              <Text className="text-white mt-2 text-sm font-medium" numberOfLines={1}>
-                Chill Vibes {i + 1}
-              </Text>
-            </View>
-          ))}
-        </ScrollView>
-      </View>
-
-      {/* Genres / Playlists Grid */}
-      <View className="mb-6">
-        <Text className="text-white text-lg font-semibold mb-4">Your Mixes</Text>
-        <View className="flex-row flex-wrap -mx-2">
-          {["Workout", "Focus", "Party", "Relax", "Jazz", "Indie"].map((genre, i) => (
-            <TouchableOpacity
-              key={i}
-              className="w-1/2 px-2 mb-4"
-              activeOpacity={0.8}
-            >
-              <View className="bg-neutral-900 rounded-xl p-4 h-28 justify-between">
-                <Text className="text-white font-medium text-base">{genre}</Text>
-                <Feather name="headphones" size={20} color="#ccc" />
-              </View>
-            </TouchableOpacity>
-          ))}
-        </View>
-      </View>
-
-      {/* Floating Now Playing Bar (Optional) */}
-      <View className="absolute bottom-6 left-4 right-4 bg-neutral-800 rounded-full p-3 flex-row justify-between items-center shadow-lg shadow-black/50">
-        <View className="flex-row items-center">
-          <Image
-            source={{ uri: "https://i.imgur.com/UYiroysl.jpg" }}
-            className="w-10 h-10 rounded-full mr-3"
-          />
-          <View>
-            <Text className="text-white text-sm font-semibold">Eternal Echoes</Text>
-            <Text className="text-neutral-400 text-xs">By Nova</Text>
-          </View>
-        </View>
-        <Ionicons name="play" size={20} color="white" />
-      </View>
-    </View>
+                return <MaterialIcons name={iconName as any} size={size} color={color} />;
+              },
+            })}
+          >
+            <Tab.Screen name="Home" component={HomeScreen} />
+            <Tab.Screen name="Search" component={SearchScreen} />
+            <Tab.Screen name="Playlist" component={PlaylistScreen} />
+          </Tab.Navigator>
+        </NavigationContainer>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 }
+
+const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    backgroundColor: "#121212", // Match your background
+  },
+});

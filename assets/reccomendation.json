@@ -1,0 +1,13 @@
+[
+  { "id": 1, "title": "Save Your Tears", "artist": "The Weeknd", "album": "After Hours", "cover": "https://i.scdn.co/image/ab67616d0000b273c2a1e6b2b5b3aefcbdeb18f0" },
+  { "id": 2, "title": "Peaches", "artist": "Justin Bieber", "album": "Justice", "cover": "https://i.scdn.co/image/ab67616d0000b273cb3ec55e5edc708b5ef6d1d6" },
+  { "id": 3, "title": "Good 4 U", "artist": "Olivia Rodrigo", "album": "SOUR", "cover": "https://i.scdn.co/image/ab67616d0000b27339b1b1e445c2a95e6a02f0a0" },
+  { "id": 4, "title": "Stay", "artist": "The Kid LAROI, Justin Bieber", "album": "Stay (Single)", "cover": "https://i.scdn.co/image/ab67616d0000b2732c3a8a23b7f3c67128f72c3c" },
+  { "id": 5, "title": "Levitating", "artist": "Dua Lipa", "album": "Future Nostalgia", "cover": "https://i.scdn.co/image/ab67616d0000b2735ec2326e7c1f3ed34a03cb34" },
+  { "id": 6, "title": "Shivers", "artist": "Ed Sheeran", "album": "=", "cover": "https://i.scdn.co/image/ab67616d0000b27347a8e6b3f29e3b7c6e9c5ef1" },
+  { "id": 7, "title": "Industry Baby", "artist": "Lil Nas X, Jack Harlow", "album": "Montero", "cover": "https://i.scdn.co/image/ab67616d0000b27331ad94f5c3cfafef4c5a54da" },
+  { "id": 8, "title": "Drivers License", "artist": "Olivia Rodrigo", "album": "SOUR", "cover": "https://i.scdn.co/image/ab67616d0000b273e8cdb2b3f9ce3b5d77df1ef5" },
+  { "id": 9, "title": "Bad Habits", "artist": "Ed Sheeran", "album": "=", "cover": "https://i.scdn.co/image/ab67616d0000b27367d6d3b8f3f1d6f6f8c3d8af" },
+  { "id": 10, "title": "Kiss Me More", "artist": "Doja Cat, SZA", "album": "Planet Her", "cover": "https://i.scdn.co/image/ab67616d0000b27322f1c94e2bca5aaf9cf7486e" },
+  { "id": 11, "title": "Heat Waves", "artist": "Glass Animals", "album": "Dreamland", "cover": "https://i.scdn.co/image/ab67616d0000b273d8f5e74d6c5d89e83b1a3a13" }
+]
